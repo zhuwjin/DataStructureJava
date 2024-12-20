@@ -48,6 +48,22 @@ public class Array<T> implements Iterable<T> {
 
 
     /**
+     * 返回第一个值为value的下标
+     * @param value 要找的值
+     * @return 返回第一个找到的下标，没找到返回-1
+     */
+    public int indexOf(T value) {
+        for (int i = 0; i < size; i += 1) {
+            if (data[i].equals(value)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+
+    /**
      * 插入元素，在插入位置之后的元素会向后移动
      * @param index 要插入的下标
      * @param value 要插入的元素
@@ -83,6 +99,18 @@ public class Array<T> implements Iterable<T> {
         //将下标处的元素设为要设置的元素
         data[index] = value;
         size += 1;
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        for (int i = index + 1; i < size; i += 1) {
+            data[i - 1] = data[i];
+        }
+
+        size -= 1;
     }
 
     @Override
