@@ -7,13 +7,21 @@ public class LinkedListTest {
     @Test
     public void base_test(){
         LinkedList<Integer> list = new LinkedList<>();
-        var head = list.get_node(-1);
-        list.insert(head, 1);
-        list.insert(head, 2);
-        list.insert(head, 3);
 
-        System.out.println(list.get(0));
-        System.out.println(list.get(1));
-        System.out.println(list.get(2));
+        list.insert_last(1);
+        list.insert_last(2);
+        list.insert_last(3);
+
+        list.insert_first(0);
+        list.insert_last(4);
+
+        for (var v : list){
+            System.out.print(v + ",");
+        }
+
+        list.remove(4);
+        for (var v : list){
+            System.out.print(v + ",");
+        }
     }
 }
