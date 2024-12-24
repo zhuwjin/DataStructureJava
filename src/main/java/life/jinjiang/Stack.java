@@ -17,4 +17,9 @@ public class Stack<T> {
     public void push(T data){
         array.insert(array.size(), data);
     }
+
+    public T tryGetTop(){
+        if (array.size() == 0) return null;
+        return array.get(array.size() - 1);
+    }
 }
